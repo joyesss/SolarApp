@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>solar web</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/sidebars.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="js/jquery-3.4.1.js"></script>
+    <script type="text/javascript" src="js/vue.js"></script>
+    <script type="text/javascript" src="js/popper.min.js"></script>
+    <script type="text/javascript" src="js/echarts.min.js"></script>
+</head>
+<body>
+    <div class="container-fluid fontsize backgroundimg" id="V_API">
+      <div class="row ">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-sm
+            p-2 "
+              style="
+              background-color:rgba(255, 192, 203, 0.562);
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              text-align: center;
+              margin: 10px;
+              border-radius: 20px;
+              padding: 2px;
+            ">
+              <marquee>
+                <p style="color: rgb(2, 2, 2); font-size: 55px;padding: 5px;  font-family: 'LXGW WenKai TC', sans-serif;">
+                  {{marquee}}
+                </p>
+              </marquee>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm logo-container logo">
+          <div>
+            <p>YULON</p>
+            <p>SOLAR ENERGY</p>
+          </div>
+        </div>
+        <div class="col-sm logo">
+          <p>{{DTTM}}</p>
+          <p>{{Tmpt}}°C</p>
+        </div>
+      </div>
+      <div class="row" style="padding: 5px;">
+        <hr>
+      </div>
+      <div class="row">
+        <div class="col-sm-7">
+          <div class="container-fluid">
+            <div class="row">
+      
+                <!--及時發電量  -->
+              <div class="col-sm p-2" 
+                  style="
+                  background-color:rgba(255, 192, 203, 0.562);
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  text-align: center;
+                  margin: 10px;
+                  border-radius: 20px;
+                  padding: 2px;
+                ">
+                {{showThousand(SolarValue)}} MwH
+                <br>
+                即時發電量
+              </div>
+
+              <!--及時電量  -->
+              <div class="col-sm p-2 "
+                style="
+                background-color:rgba(255, 192, 203, 0.562);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+                margin: 10px;
+                border-radius: 20px;
+                padding: 2px;
+              ">
+               {{showThousand(UseValue)}} MwH<br>即時用電量
+               <!-- {{Persent}} %<br>即時綠電占比 -->
+              </div>
+            </div>
+            <div class="row">
+              <!-- 發電量換算N7 -->
+              <div class="col-sm p-2"
+              style="
+              background-color:rgba(255, 192, 203, 0.562);
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              text-align: center;
+              margin: 5px;
+              border-radius: 20px;
+              padding: 2px;
+            ">
+               
+                 
+                <!-- N7電池容量57.73kwh  -->
+                <!-- Mwh*1000 = kwh-->
+              <!-- <div style="display: flex;align-items: center; font-size: larger;"> -->
+                 可充電{{transfer_n7}}台<br>LUXGEN n7
+                <img class="car-all" src="pic/charge.png" alt="Luxgen N7">
+                
+              </div>
+              <!-- <div class="col-sm p-2 "
+              style="
+              background-color:rgba(255, 192, 203, 0.562);
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              text-align: center;
+              margin: 10px;
+              border-radius: 20px;
+              padding: 2px;
+            ">  
+                {{Rad}} wH/m2<br>日照量
+              </div> -->
+            </div>
+          </div>
+        </div>
+        <div class="col-sm">
+          <!-- <div id="divChart" >
+            <canvas id="lineChart" style="position: relative; height:15vh; width:35vw"></canvas>
+          </div> -->
+
+
+          <div id="line" style="position: relative; height: 300px; width: 420px;background-color: rgba(231, 222, 222, 0.232);"></div>
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-sm">
+          <div id="divChart" >
+            <!-- <canvas id="barChart"  style="position: relative; height:20vh; width:40vw">年發電用電綠電</canvas> -->
+            <div id="main" style="position: relative; height: 387px; width: 510px;background-color: rgba(231, 222, 222, 0.432);"></div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-sm 
+              p-2 "
+              style="
+              background-color:rgba(255, 192, 203, 0.562);
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              text-align: center;
+              margin: 10px;
+              border-radius: 20px;
+              padding: 2px;
+            ">
+                {{showThousand(SolarValueMon)}} MwH<br>當月發電量
+              </div>
+              <div class="col-sm 
+              p-2 "
+              style="
+              background-color:rgba(255, 192, 203, 0.562);
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              text-align: center;
+              margin: 10px;
+              border-radius: 20px;
+              padding: 2px;
+            ">
+                {{showThousand(UseValueMon)}} MwH<br>當月用電量
+                <!-- {{showThousand(SolarValueYear)}} MwH<br>年度發電量 -->
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm p-2 "
+              style="
+              background-color:rgba(255, 192, 203, 0.562);
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              text-align: center;
+              margin: 5px;
+              border-radius: 20px;
+              padding: 2px;
+            ">
+              <img src="pic/sun.png" alt="sun_summer" style="height:6vh; padding: 8px;opacity: 0.85">
+              可供{{energysummer_month_family}}戶家庭<br>夏季月用電
+              <!-- <img class="energy_summmer" src="pic/sun.jpg" alt="sun_summer" style="height:4vh; padding: 8px;"> -->
+              </div>
+              <!-- <div class="col-sm p-2 "
+              style="
+              background-color:rgba(255, 192, 203, 0.562);
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              text-align: center;
+              margin: 10px;
+              border-radius: 20px;
+              padding: 2px;
+            ">
+                {{showThousand(UseValueYear)}} MwH<br>年度用電量
+              </div> -->
+            </div>
+            <div class="row">
+              <div class="col-sm
+              p-2 "
+              style="
+              background-color:rgba(255, 192, 203, 0.562);
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              text-align: center;
+              margin: 5px;
+              border-radius: 20px;
+              padding: 2px;
+            ">
+                <img class="energy_nonsummmer" src="pic/snow.png" alt="leaf_nonsummer" style="height:6.5vh; padding: 8px;">
+                可供{{energy_nonsummer_month_family}}戶家庭<br>非夏季月用電
+                <!-- <img class="energy_nonsummmer" src="pic/leaf.jpg" alt="leaf_nonsummer" style="height:4vh; padding: 8px;"> -->
+                <!-- {{PersentMon}} %<br>當月綠電占比 -->
+              </div>
+              <!-- <div class="col-sm 
+              p-2 "
+              style="
+              background-color:rgba(255, 192, 203, 0.562);
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              text-align: center;
+              margin: 10px;
+              border-radius: 20px;
+              padding: 2px;
+            ">
+                {{PersentYear}} %<br>年度綠電占比
+              </div> -->
+            </div>
+          </div>
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-sm 
+        p-2 "
+              style="
+              background-color:rgba(255, 192, 203, 0.562);
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              text-align: center;
+              margin: 10px;
+              border-radius: 20px;
+              padding: 2px;
+            ">
+            {{SolarValueYearAvg}}MwH<br>年平均發電量
+        </div>
+        <!-- <div class="col-sm 
+        p-2 "
+              style="
+              background-color:rgba(255, 192, 203, 0.562);
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              text-align: center;
+              margin: 10px;
+              border-radius: 20px;
+              padding: 2px;
+            ">
+            {{SolarValueYearSum}}MwH<br>累積發電量
+        </div> -->
+      </div>
+    </div>
+
+
+
+
+
+
+
+  </body>
+<script type="text/javascript" src="js/V_API.js" charset="big5"></script>
+<script src="js/bootstrap.bundle.min.js"></script>
+</html>

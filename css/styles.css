@@ -1,0 +1,118 @@
+
+
+*{
+  font-family: 'LXGW WenKai TC', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'LXGW WenKai TC';
+  src: url('../fonts/LXGWWenKaiTC-Bold.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.runbox{
+  display: flex;
+  /* border: 5px dashed rgba(214,0,28,0.9); */
+  background-color: rgba(194, 10, 10, 0.842);
+  /* border-style: groove; */
+  font-size: 75px;
+  color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+}
+
+.marquee{
+  padding-top: 5px;
+  border-color: red;
+  align-items: center;
+}
+
+.transparent-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 10px;
+  border-radius: 20px;
+  padding: 2px;
+  background-color: rgba(255, 192, 203, 0.562);
+  color: rgb(0, 0, 0);
+}
+
+
+
+.logo-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo{
+  margin: 10px;
+  /* display: flex; */
+  color: rgb(0, 0, 0);
+  font-size: 50px;
+  padding: 5px;
+
+}
+
+.content{
+  text-align:center;
+  margin: 5px;
+}
+
+.fontsize{
+  font-size: 30px;
+}
+
+.backgroundimg {
+  width: 1080px;
+  height: 1920px;
+  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.6),
+  rgba(255,252,220,0.42)),
+  url('../pic/backimg.jpg');
+  background-size: cover; /* 使背景图片覆盖整个容器 */
+  background-position: center; /* 使背景图片居中显示 */
+  background-repeat:no-repeat ; /* 不重复背景图片 */
+}
+
+
+.videobox{
+  padding: 20px;
+}
+
+.mat-elevation-z8{
+  color: black;
+}
+
+/* .car{
+  position: absolute;
+  left: 36.8%;
+ 
+} */
+
+.carwheelright{
+  left: 36.8%;
+  bottom: 27.8%;
+}
+
+.carwheelleft{
+  left: 46.4%;
+  bottom: 27.
+  6%;
+}
+/* .marquee-container {
+  text-align: right;
+  overflow: hidden;
+  white-space: nowrap;
+  /* width: 100%; */
+/* }  */
+
+
+
