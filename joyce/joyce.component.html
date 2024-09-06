@@ -1,0 +1,105 @@
+<body>
+    <!-- 歡迎詞跑馬燈 -->
+    <div class="runbox" >
+        <marquee > Welcome to Yulon Motor. </marquee>
+    </div>
+    <!-- 1080*1920 -->
+    <div class="container-fluid fontsize backgroundimg">
+        <div class="row">   
+            <div class="col-md-8 logo-container">               
+                <div class="logo">YULON SOLAR ENERGY</div>
+            </div>
+            <div class="col-md">
+                <div class="col-md transparent-container">
+                    <div class="content">
+                        {{year}}/{{month}}/{{day}} {{hours}}:{{minutes}}<br>{{TMPT}}
+                    </div>
+                </div>
+            </div>
+        </div> 
+        <div class="container-fluid"> 
+            <div class="row">
+                <div class="col-md">
+                    <div class="container-fluid">
+                        <div class="row"> 
+                            <div class="col-md transparent-container">
+                                {{ELESOLAR_DAY}}MwH<br>即時發電量
+                            </div>
+                            <div class="col-md transparent-container">
+                                {{ELEFACTORY_DAY}}MwH<br>即時用電量
+                            </div>
+                        </div>    
+                        <div class="row">
+                            <div class="col-md transparent-container">
+                                {{GREENRATIO_DAY}}%<br>即時綠電占比 
+                                <!-- 發電/用電 -->
+                                </div>
+                            <div class="col-md transparent-container">
+                                {{RAD}}wH/m2<br>即時日照量
+                            </div>
+                        </div>
+                    </div> 
+                </div>
+                <div class="col-md">
+                    <!-- 加上%符號 --> 
+                    <div id="divChart">
+                        <canvas id="lineChart"  style="height: 200px"></canvas>
+                    </div> 
+                </div>
+            </div>
+        </div> 
+    <!-- container-fluid -->
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md">
+                    <div id="divChart">
+                        <canvas id="barChart"  style="width: 500px;">年發電用電綠電</canvas>
+                    </div>
+                </div>
+                <div class="col-md">
+                    <div class="row ">
+                        <div class="col-md transparent-container">
+                            {{ELESOLAR_MONTH}}MwH<br>當月發電量 
+                        </div>
+                        <div class="col-md transparent-container">
+                            {{ELESOLAR_YEAR}}MwH<br>年度發電量 
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md transparent-container">
+                            {{ELEFACTORY_MONTH}}MwH<br>當月用電量 
+                        </div>
+                        <div class="col-md transparent-container">
+                            {{ELEFACTORY_YEAR}}MwH<br>年度用電量 
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md transparent-container">
+                            {{GREENRATIO_MONTH}}%<br>當月綠電占比
+                        </div>
+                        <div class="col-md transparent-container">
+                            {{GREENRATIO_YEAR}}%<br>年度綠電占比
+                        </div>
+                    </div>
+                </div> 
+            </div>
+        </div>
+        <div class="container-fluid">  
+            <div class="row">
+                <div class="col-md transparent-container">
+                    {{ELESOLAR_SUMRATIO}}MwH<br>年平均發電量
+                </div>
+                <div class="col-md transparent-container">
+                    {{ELESOLAR_SUM}}MwH<br>累積發電量
+               </div>
+            </div>
+            
+        </div>
+        
+<!--123456 -->
+        <div class="row videobox">  
+            <video src="../../assets/movie/mov.mp4" width="400px" controls></video> 
+        </div>   
+
+    </div>
+</body>

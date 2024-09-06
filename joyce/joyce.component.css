@@ -1,0 +1,97 @@
+*{  
+    font-family: 'LXGW WenKai TC', sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'LXGW WenKai TC';
+    src: url('../../assets/fonts/LXGWWenKaiTC-Bold.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+  
+.runbox{
+    display: flex;
+    background-color: rgb(2194, 10, 10, 0.842)s;
+    font-size: 75px;
+    color: rgb(0, 0, 0);
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.marquee{
+    padding-top: 5px;
+    border-color: red;
+    align-items: center;
+}
+
+.transparent-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    background-color: #FFCEC7;
+
+    margin: 10px;
+    padding: 2px;
+    border-radius: 20px;
+    color: rgb(0, 0, 0);
+
+    opacity: 0.8;
+}
+
+.logo-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo{
+    margin: 10px;
+    /* display: flex; */
+    color: rgb(0, 0, 0);
+    font-size: 50px;
+}
+ 
+.content{
+    text-align:center;
+    margin: 5px;
+}
+
+.fontsize{
+    font-size: 30px;
+}
+
+.backgroundimg {
+    width: 1080px;
+    height: 1920px;
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.5), 
+    rgba(255,252,220,0.42)),
+    url('../../assets/pic/backimg.jpg');
+    background-size: cover; /* 使背景图片覆盖整个容器 */
+    background-position: center; /* 使背景图片居中显示 */
+    background-repeat:no-repeat ; /* 不重复背景图片 */
+}
+
+
+.videobox{
+    padding: 20px;
+}
+
+.mat-elevation-z8{
+    color: black;
+}
+ 
+
+/* .marquee-container {
+    text-align: right;
+    overflow: hidden;
+    white-space: nowrap;
+    /* width: 100%; */
+  /* }  */
+  
+
+
